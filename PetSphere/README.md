@@ -1,17 +1,17 @@
 # PetSphere
 
-PetSphere is a mobile application designed to provide pet services. This app features a splash screen that displays the logo for a few seconds before navigating to the login interface.
+PetSphere is a mobile application designed to provide pet services.
 
 ## Project Structure
 
 ```
 PetSphere
 ├── assets
-│   └── logo.png
+│   └── 
 ├── components
-│   └── LoginScreen.js
+│   └── 
 ├── screens
-│   └── SplashScreen.js
+│   └── 
 ├── App.js
 ├── app.json
 ├── package.json
@@ -20,8 +20,6 @@ PetSphere
 
 ## Features
 
-- **Splash Screen**: Displays the app logo for a brief period.
-- **Login Interface**: Allows users to enter their credentials to access the app.
 
 ## Getting Started
 
@@ -29,7 +27,7 @@ To get started with the PetSphere app, follow these steps:
 
 1. **Clone the repository**:
    ```
-   git clone <repository-url>
+   git clone https://github.com/habib-153/Pet_Cohort.git
    cd PetSphere
    ```
 
