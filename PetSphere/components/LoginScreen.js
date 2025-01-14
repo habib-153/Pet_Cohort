@@ -5,28 +5,24 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Image,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useGetDataQuery } from "../redux/features/auth/authApi";
+import pawImage from "../assets/paw4.png";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const { data } = useGetDataQuery(undefined);
 
   const handleLogin = () => {
-    console.log("Logging in with:", username, password);
+    console.log("Logging in with:", email, password);
   };
 
-  const PawPrint = () => (
-    <View style={styles.pawPrint}>
-      <View style={styles.pawMain} />
-      <View style={[styles.pawDot, { top: -10, left: -8 }]} />
-      <View style={[styles.pawDot, { top: -10, right: -8 }]} />
-      <View style={[styles.pawDot, { top: 2, left: -12 }]} />
-      <View style={[styles.pawDot, { top: 2, right: -12 }]} />
-    </View>
-  );
+  const PawPrint = () => <Image source={pawImage} style={styles.pawPrint} />;
 
   return (
     <View style={styles.container}>
@@ -100,25 +96,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   pawPrint: {
-    width: 40,
-    height: 40,
-    position: "relative",
-  },
-  pawMain: {
-    width: 20,
-    height: 20,
-    backgroundColor: "#000000",
-    borderRadius: 10,
-    position: "absolute",
-    top: 10,
-    left: 10,
-  },
-  pawDot: {
-    width: 10,
-    height: 10,
-    backgroundColor: "#000000",
-    borderRadius: 5,
-    position: "absolute",
+    width: 80,
+    height: 80,
   },
   title: {
     fontSize: 32,
@@ -126,8 +105,6 @@ const styles = StyleSheet.create({
     color: "#000000",
     textAlign: "center",
     width: "100%",
-
-    //textDecorationLine: "underline",
   },
   formContainer: {
     padding: 20,
@@ -180,84 +157,3 @@ const styles = StyleSheet.create({
 });
 
 export default LoginScreen;
-//     return (
-//         <View style={styles.container}>
-//             <Text style={styles.title}>Welcome Back</Text>
-//             <View style={styles.inputContainer}>
-//                 <TextInput
-//                     style={styles.input}
-//                     placeholder="Email"
-//                     value={email}
-//                     onChangeText={setEmail}
-//                     keyboardType="email-address"
-//                     autoCapitalize="none"
-//                 />
-//                 <TextInput
-//                     style={styles.input}
-//                     placeholder="Password"
-//                     value={password}
-//                     onChangeText={setPassword}
-//                     secureTextEntry
-//                 />
-//             </View>
-
-//             <TouchableOpacity style={styles.button} onPress={handleLogin}>
-//                 <Text style={styles.buttonText}>Login</Text>
-//             </TouchableOpacity>
-
-//             <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-//                 <Text style={styles.linkText}>Don't have an account? Register</Text>
-//             </TouchableOpacity>
-//         </View>
-//     );
-// };
-
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         justifyContent: 'center',
-//         padding: 20,
-//         backgroundColor: '#fff',
-//     },
-//     title: {
-//         fontSize: 28,
-//         fontWeight: 'bold',
-//         color: '#333',
-//         textAlign: 'center',
-//         marginBottom: 30,
-//     },
-//     inputContainer: {
-//         gap: 15,
-//         marginBottom: 25,
-//     },
-//     input: {
-//         height: 50,
-//         borderWidth: 1,
-//         borderColor: '#ddd',
-//         borderRadius: 8,
-//         paddingHorizontal: 15,
-//         fontSize: 16,
-//         backgroundColor: '#f8f8f8',
-//     },
-//     button: {
-//         backgroundColor: '#E9BA45',
-//         paddingVertical: 8,
-//         width: 100,
-//         borderRadius: 8,
-//         alignItems: 'center',
-//         alignSelf: 'center',
-//     },
-//     buttonText: {
-//         color: '#000000',
-//         fontSize: 18,
-//         fontWeight: '600',
-//     },
-//     linkText: {
-//         color: '#007AFF',
-//         textAlign: 'center',
-//         marginTop: 20,
-//         fontSize: 16,
-//     },
-// });
-
-// export default LoginScreen;
